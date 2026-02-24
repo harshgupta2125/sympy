@@ -1,9 +1,10 @@
 from __future__ import annotations
-from typing import Iterator, Any
+from typing import Iterator, Any, TypeVar
 from sympy.core import Basic, Integer
 
 import random
 
+T = TypeVar('T')
 
 class GrayCode(Basic):
     """
@@ -383,7 +384,7 @@ def bin_to_gray(bin_list: str) -> str:
     return ''.join(b)
 
 
-def get_subset_from_bitstring(super_set: list[Any], bitstring: str) -> list[Any]:
+def get_subset_from_bitstring(super_set: list[T], bitstring: str) -> list[T]:
     """
     Gets the subset defined by the bitstring.
 
@@ -407,7 +408,7 @@ def get_subset_from_bitstring(super_set: list[Any], bitstring: str) -> list[Any]
             if bitstring[i] == '1']
 
 
-def graycode_subsets(gray_code_set: list[Any]) -> Iterator[list[Any]]:
+def graycode_subsets(gray_code_set: list[T]) -> Iterator[list[T]]:
     """
     Generates the subsets as enumerated by a Gray code.
 
